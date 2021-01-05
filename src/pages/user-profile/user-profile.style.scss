@@ -1,0 +1,69 @@
+.user-profile {
+    .card {
+        border-radius: 2%;
+        padding: 10px;
+    }
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    // position: sticky;
+    // z-index: 998;
+    // top: 10%;
+
+    .text-card {
+        width: 85%;
+    }
+}
+
+.general-section {
+    .inner-header {
+        text-align: center;
+        position: sticky;
+        z-index: 997;
+    } 
+    .card {
+        height: 600px;
+    }
+}
+
+.user-contribution,
+.user-bookmark {
+    .inner-header {
+        text-align: center;
+        position: sticky;
+        z-index: 997;
+    }
+    .card {
+        min-height: 150px;
+        max-height: 450px;
+    }
+}
+
+.modify-grid {
+    .card-grid {
+        width: auto;
+    }
+}
+
+.add-new-skill {
+    .card {
+        border-radius: 25%;
+        height: 40px;
+    }
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.edit-skill {
+    .modify-grid {
+        .remove-skill {
+            .cancel-button {
+                position: absolute;
+                margin-left: 10px;
+                z-index: 10;
+            }
+        }
+    }
+}
