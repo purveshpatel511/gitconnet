@@ -56,6 +56,34 @@
     justify-content: space-evenly;
 }
 
+.edit-profile {
+    .card {
+        height: 40px;
+        border-radius: 25%; 
+    }
+    .username-section,
+    .github-section,
+    .linkedin-section,
+    .stackoverflow-section,
+    .name-section {
+        display: flex;
+        justify-content: space-evenly;
+        .title-card {
+            .card {
+                width: 140px;
+                border-radius: 25%;
+                h3 {
+                    text-align: center;
+                    margin-top: 10px;
+                }
+            }
+        }
+        .custom-input {
+            width: 400px;
+        }
+    }
+}
+
 .edit-skill {
     .modify-grid {
         .remove-skill {

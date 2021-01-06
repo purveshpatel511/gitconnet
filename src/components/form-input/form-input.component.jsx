@@ -3,10 +3,10 @@ import './form-input.style.scss';
 
 import Card from '../card/card.component';
 
-const FormInput = ({placeholder}) => {
+const FormInput = ({placeholder, value, onChange}) => {
     return(
         <Card>
-            <input className="custom-input" type="text" placeholder={placeholder} />
+            <input className="custom-input" type="text" value={value} placeholder={placeholder} onChange={onChange} />
         </Card>
     );
 }

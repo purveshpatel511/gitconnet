@@ -39,7 +39,7 @@ class UserProfile extends React.Component {
         super(props);
 
         this.state = {
-            isEdit: true,
+            isEdit: false,
             name: "Purvesh Patel",
             userid: "purveshpatel511",
             github: "",
@@ -126,6 +126,71 @@ class UserProfile extends React.Component {
         }
     }
 
+    renderGeneralProfile() {
+        if(this.state.isEdit){
+            return(
+                <div className="edit-profile">
+                    <VerticalScroll height="450px">
+                    <div className="name-section">
+                        <div className="title-card">
+                            <Card><h3>Name</h3></Card>
+                        </div>
+                        <FormInput placeholder="Enter Name" value={this.state.name} onChange={(e) => {this.setState({name: e.target.value})}} />
+                    </div>
+                    <br /><br />
+                    <div className="username-section">
+                        <div className="title-card">
+                            <Card><h3>Userid</h3></Card>
+                        </div>
+                        <FormInput placeholder="Enter Username" value={this.state.userid} onChange={(e) => {this.setState({name: e.target.value})}} />
+                    </div>
+                    <br /><br />
+                    <div className="github-section">
+                        <div className="title-card">
+                            <Card><h3>Github ID</h3></Card>
+                        </div>
+                        <FormInput placeholder="Github User ID" value={this.state.github} onChange={(e) => {this.setState({name: e.target.value})}} />
+                    </div>
+                    <br /><br />
+                    <div className="linkedin-section">
+                        <div className="title-card">
+                            <Card><h3>LinkedIN</h3></Card>
+                        </div>
+                        <FormInput placeholder="LinkedIN ID" value={this.state.linkedin} onChange={(e) => {this.setState({name: e.target.value})}} />
+                    </div>
+                    <br /><br />
+                    <div className="stackoverflow-section">
+                        <div className="title-card">
+                            <Card><h3>Stackoverflow</h3></Card>
+                        </div>
+                        <FormInput placeholder="StackOverflow ID" value={this.state.stackoverflow} onChange={(e) => {this.setState({name: e.target.value})}} />
+                    </div>
+                    </VerticalScroll>
+                </div>
+            );
+        }
+        else {
+            return(
+                <div className="display-profile">
+                    <VerticalScroll height="350px">
+                        <h2>Name</h2><hr />
+                        <span>{this.state.name}</span>
+                        <br /><br />
+                        <h2>Username</h2><hr />
+                        <span>{this.state.userid}</span>
+                    </VerticalScroll>
+                    <div className="modify-grid">
+                        <CardGrid gridColumn="1fr 1fr 1fr">
+                            <CustomButtonCard classname="github-social" imageURL={GithubSVG} imageText="github" />
+                            <CustomButtonCard classname="linkedin-social" imageURL={LinkedinSVG} imageText="linkedin" />
+                            <CustomButtonCard classname="stackoverflow-social" imageURL={StackoverflowSVG} imageText="stackoverflow" />
+                        </CardGrid>
+                    </div>
+                </div>
+            );
+        }
+    }
+
     renderSkill() {
         if(this.state.isEdit){
             return(
@@ -140,7 +205,7 @@ class UserProfile extends React.Component {
                             <CardGrid gridColumn="1fr 1fr 1fr 1fr">
                                 {
                                     this.state.skills.map((skill) => (
-                                            <SkillCard imageURL={skill.imageURL} imageText={skill.imageText} isRemove="false" />
+                                            <SkillCard imageURL={skill.imageURL} imageText={skill.imageText} isRemove="true" />
                                     ))
                                 }
                             </CardGrid>
@@ -156,7 +221,7 @@ class UserProfile extends React.Component {
                         <CardGrid gridColumn="1fr 1fr 1fr 1fr">
                             {
                                 this.state.skills.map((skill) => (
-                                    <SkillCard imageURL={skill.imageURL} imageText={skill.imageText} />
+                                    <SkillCard imageURL={skill.imageURL} imageText={skill.imageText} isRemove="false"/>
                                 ))
                             }
                         </CardGrid>
@@ -179,20 +244,7 @@ class UserProfile extends React.Component {
                         <CardGrid gridColumn="1fr 1fr">
                             <Card>
                                 <h2 className="inner-header">General Profile</h2>
-                                    <VerticalScroll height="350px">
-                                    <h2>Name</h2><hr />
-                                    <span>{this.state.name}</span>
-                                    <br /><br />
-                                    <h2>Username</h2><hr />
-                                    <span>{this.state.userid}</span>
-                                </VerticalScroll>
-                                <div className="modify-grid">
-                                    <CardGrid gridColumn="1fr 1fr 1fr">
-                                        <CustomButtonCard classname="github-social" imageURL={GithubSVG} imageText="github" />
-                                        <CustomButtonCard classname="linkedin-social" imageURL={LinkedinSVG} imageText="linkedin" />
-                                        <CustomButtonCard classname="stackoverflow-social" imageURL={StackoverflowSVG} imageText="stackoverflow" />
-                                    </CardGrid>
-                                </div>
+                                {this.renderGeneralProfile()}
                             </Card>
                             <Card>
                                 <h2 className="inner-header">Skill</h2>
