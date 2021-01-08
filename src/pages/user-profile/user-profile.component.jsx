@@ -45,84 +45,123 @@ class UserProfile extends React.Component {
             github: "",
             linkedin: "",
             stackoverflow: "",
+            tempSkill:"",
+            skillCount: 20,
             skills: [
                 {
+                    key:1,
                     imageURL: AWSSVG,
                     imageText: "Web_Services"
                 },
                 {
+                    key:1,
+                    imageURL: AWSSVG,
+                    imageText: "Web_Services"
+                },
+                {
+                    key:2,
                     imageURL: BabelSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:3,
                     imageURL: BackBonejsSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:4,
                     imageURL: CPlusPlusSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:5,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:6,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:7,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:8,
                     imageURL: BabelSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:9,
                     imageURL: BackBonejsSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:10,
                     imageURL: CPlusPlusSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:11,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:12,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:13,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:14,
                     imageURL: BabelSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:15,
                     imageURL: BackBonejsSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:16,
                     imageURL: CPlusPlusSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:17,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:18,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
                 },
                 {
+                    key:19,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
                 }
             ]
+        }
+    }
+
+    renderSaveButton() {
+        if(this.state.isEdit){
+            return(
+                <CustomButton title="Save" onClick={()=>{this.setState({isEdit: false})}} />
+            );
+        }
+        else {
+            return(
+                <CustomButton title="Edit Profile" onClick={()=>{this.setState({isEdit: true})}} />
+            );
         }
     }
 
@@ -191,13 +230,27 @@ class UserProfile extends React.Component {
         }
     }
 
+    addSkill = () => {
+        var keyvalue = this.state.skillCount;
+        var keyvalue = keyvalue + 1;
+        this.setState({
+            skills: this.state.skills.concat({key:keyvalue, imageURL: BabelSVG, imageText:`${this.state.tempSkill}`}),
+            skillCount: keyvalue,
+        });
+    }
+
+    removeSkill = (id) => {
+        const newSkills = this.state.skills.splice(id,1);
+        this.setState({skills: newSkills});
+    }
+
     renderSkill() {
         if(this.state.isEdit){
             return(
                 <div className="edit-skill">
                     <div className="add-new-skill">
-                        <FormInput placeholder="Skill" />
-                        <CustomButton title="Add Skill" />
+                        <FormInput placeholder="Skill" value={this.state.tempSkill} onChange={(e)=> {this.setState({tempSkill: e.target.value})}}/>
+                        <CustomButton title="Add Skill" onClick={this.addSkill} />
                     </div>
                     <br />
                     <VerticalScroll height="380px">
@@ -205,7 +258,7 @@ class UserProfile extends React.Component {
                             <CardGrid gridColumn="1fr 1fr 1fr 1fr">
                                 {
                                     this.state.skills.map((skill) => (
-                                            <SkillCard imageURL={skill.imageURL} imageText={skill.imageText} isRemove="true" />
+                                            <SkillCard id={skill.key} imageURL={skill.imageURL} imageText={skill.imageText} onClick={this.removeSkill} isRemove="true" />
                                     ))
                                 }
                             </CardGrid>
@@ -221,7 +274,7 @@ class UserProfile extends React.Component {
                         <CardGrid gridColumn="1fr 1fr 1fr 1fr">
                             {
                                 this.state.skills.map((skill) => (
-                                    <SkillCard imageURL={skill.imageURL} imageText={skill.imageText} isRemove="false"/>
+                                    <SkillCard id={skill.key} imageURL={skill.imageURL} imageText={skill.imageText} isRemove="false"/>
                                 ))
                             }
                         </CardGrid>
@@ -236,7 +289,7 @@ class UserProfile extends React.Component {
             <div className="user-profile">
                     <div className="profile-header">
                         <TextCard text="User Profile" />        
-                        <CustomButton title="Edit Profile" />
+                        {this.renderSaveButton()}
                     </div>
                     <br/><br/>
                 <Card>

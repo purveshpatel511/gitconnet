@@ -1,9 +1,9 @@
 import React from 'react';
 import './cancel-button.style.scss';
 
-const CancelButton = ({onClick}) => {
+const CancelButton = (...otherProps) => {
     return(
-        <button className="cancel-button" onClick={onClick}>X</button>
+        <button className="cancel-button" {...otherProps}>X</button>
     );
 }
 
