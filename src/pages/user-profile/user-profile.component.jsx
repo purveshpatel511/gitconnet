@@ -321,6 +321,11 @@ class UserProfile extends React.Component {
                             <VerticalScroll height="300px">
                                 <br />
                                 <CardGrid gridColumn="1fr 1fr 1fr">
+                                    <CardView projectTitle="Project1" projectDescription="This is Description">
+                                        <CardGrid gridColumn="1fr">
+                                            <CustomButton title="Remove" />
+                                        </CardGrid>
+                                    </CardView>
                                     <CardView />
                                     <CardView />
                                     <CardView />
@@ -343,6 +348,12 @@ class UserProfile extends React.Component {
                             <VerticalScroll height="300px">
                                 <br />
                                 <CardGrid gridColumn="1fr 1fr 1fr">
+                                    <CardView projectTitle="Project1" projectDescription="This is Description">
+                                        <CardGrid gridColumn="1fr 1fr">
+                                            <CustomButton title="Accept" />
+                                            <CustomButton title="Reject" />
+                                        </CardGrid>
+                                    </CardView>
                                     <CardView />
                                     <CardView />
                                     <CardView />

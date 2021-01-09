@@ -9,3 +9,14 @@
         width: 85%;
     }
 }
+
+.projects-section {
+    .card-list {
+        .card-view {
+            .card-grid{
+                width: min-content;
+                justify-content: space-evenly;
+            }
+        }
+    }
+}

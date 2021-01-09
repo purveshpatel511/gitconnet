@@ -19,8 +19,8 @@ function App() {
     <div className="App">
       <Header />
       <br /><br />
-      {/* <UserProject /> */}
-      <UserProfile />
+      <UserProject />
+      {/* <UserProfile /> */}
       {/* <Notification /> */}
       {/* <SkillCard imageURL={AWSSVG} imageText="AWS"/> */}
       {/* <VerticalScroll height="600px">
