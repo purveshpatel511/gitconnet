@@ -95,3 +95,13 @@
         }
     }
 }
+
+
+.remove-skill-card {
+    display: flex;
+    height: 155px;
+    width: 140px;
+    .cancel-button {
+        position: absolute;
+    }
+}

@@ -233,15 +233,20 @@ class UserProfile extends React.Component {
     addSkill = () => {
         var keyvalue = this.state.skillCount;
         var keyvalue = keyvalue + 1;
+        console.log("keyvalue: "+keyvalue);
         this.setState({
             skills: this.state.skills.concat({key:keyvalue, imageURL: BabelSVG, imageText:`${this.state.tempSkill}`}),
             skillCount: keyvalue,
+            tempSkill: "",
         });
     }
 
-    removeSkill = (id) => {
-        const newSkills = this.state.skills.splice(id,1);
-        this.setState({skills: newSkills});
+    
+    removeSkillss = (id) => {
+        console.log(id);
+        this.setState({skills: this.state.skills.filter(
+            skill => { return skill.key !== id}
+        )})
     }
 
     renderSkill() {
@@ -258,7 +263,10 @@ class UserProfile extends React.Component {
                             <CardGrid gridColumn="1fr 1fr 1fr 1fr">
                                 {
                                     this.state.skills.map((skill) => (
-                                            <SkillCard id={skill.key} imageURL={skill.imageURL} imageText={skill.imageText} onClick={this.removeSkill} isRemove="true" />
+                                        <div className="remove-skill-card">
+                                            <SkillCard id={skill.key} imageURL={skill.imageURL} imageText={skill.imageText} />
+                                            <CancelButton onClick={e => this.removeSkillss(skill.key)}/>
+                                        </div>
                                     ))
                                 }
                             </CardGrid>
