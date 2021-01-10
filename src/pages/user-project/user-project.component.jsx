@@ -24,34 +24,42 @@ class UserProject extends React.Component {
                 {
                     title: "project-1",
                     description: "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
+                    skills: ["python","reactJS"],
                 },
                 {
                     title: "project-2",
                     description: "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
+                    skills: ["python","reactJS"],
                 },
                 {
                     title: "project-3",
                     description: "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
+                    skills: ["python","reactJS"],
                 },
                 {
                     title: "project-4",
                     description: "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
+                    skills: ["python","reactJS"],
                 },
                 {
                     title: "project-5",
                     description: "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
+                    skills: ["python","reactJS"],
                 },
                 {
                     title: "project-6",
                     description: "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
+                    skills: ["python","reactJS"],
                 },
                 {
                     title: "project-7",
                     description: "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
+                    skills: ["python","reactJS"],
                 },
                 {
                     title: "project-8",
                     description: "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
+                    skills: ["python","reactJS"],
                 },
             ]
         }
@@ -73,8 +81,54 @@ class UserProject extends React.Component {
         console.log(id);
         console.log(this.state.projects);
         return(
-            <div>
-                {this.state.projects[id].title}
+            <div className="edit-project-section">
+                <CardGrid gridColumn="1fr 1fr">
+                    <Card>
+                        <VerticalScroll height="500px">
+                            <div className="title-section">
+                                <div className="title-card">
+                                    <Card><h3>Title</h3></Card>
+                                </div>
+                                <FormInput placeholder="Enter Title" value={this.state.projects[id].title} onChange={(e) => {
+                                    this.setState(({projects}) => ({
+                                        projects: [
+                                            ...projects.slice(0,id),
+                                            {
+                                                ...projects[id],
+                                                title: e.target.value,
+                                            },
+                                            ...projects.slice(id+1)
+                                        ]
+                                    }))
+                                }} />
+                            </div>
+                            <br /><br />
+                            <div className="description-section">
+                                <div className="title-card">
+                                    <Card><h3>Description</h3></Card>
+                                </div>
+                                <FormInput placeholder="Enter Description" value={this.state.projects[id].description} onChange={(e) => {
+                                    this.setState(({projects}) => ({
+                                        projects: [
+                                            ...projects.slice(0,id),
+                                            {
+                                                ...projects[id],
+                                                description: e.target.value,
+                                            },
+                                            ...projects.slice(id+1)
+                                        ]
+                                    }))
+                                }} />
+                            </div>
+                        </VerticalScroll>
+                    </Card>
+                    <Card>
+                        <h2 className="inner-header">Required Skill</h2>
+                    </Card>
+                </CardGrid>
+                <div className="custom-save">
+                    <CustomButton title="Save Details" onClick={() => {this.setState({isEditProject: false})}} />
+                </div>
             </div>
         )
     }
@@ -122,12 +176,30 @@ class UserProject extends React.Component {
         }
     }
 
+    renderMainButton() {
+        if(this.state.isEditProject){
+            return(
+                <CustomButton title="Save Details" onClick={() => {this.setState({isEditProject: false})}} />
+            )
+        }
+        else{
+            if(this.state.isAddProject){
+                <CustomButton title="Save Details" onClick={() => {this.setState({isAddProject: false})}} />
+            }
+            else{
+                return(
+                    <CustomButton title="Add Project" />
+                )
+            }
+        }
+    }
+
     render() {
         return(
             <div className="user-project">
                 <div className="project-header">
                     <TextCard text="Projects" />        
-                    <CustomButton title="Add Project" />
+                    {this.renderMainButton()}
                 </div>
                 <br /><br />
                 <Card>
