@@ -13,15 +13,21 @@ import AWSSVG from './components/skill-card/programing-language-logos/aws.svg';
 import SkillCard from './components/skill-card/skill-card.component'
 import UserProject from './pages/user-project/user-project.component';
 import Notification from './pages/notification/notification.component';
+import ProjectEditSkill from './components/project-edit-skill/project-edit-skill.component';
+import CancelButton from './components/cancel-button/cancel-button.component';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <br /><br />
-      <UserProject />
+      {/* <ProjectEditSkill id="11" skill="Python">
+        <CancelButton />
+      </ProjectEditSkill> */}
+      {/* <UserProject /> */}
       {/* <UserProfile /> */}
       {/* <Notification /> */}
+      {/* <PageNotFound /> */}
       {/* <SkillCard imageURL={AWSSVG} imageText="AWS"/> */}
       {/* <VerticalScroll height="600px">
         <CardGrid gridColumn="1fr 1fr 1fr">

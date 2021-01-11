@@ -60,4 +60,22 @@
     text-align: center;
     position: sticky;
     z-index: 997;
-} 
+}
+
+.user-project-edit-skill {
+    .vertical-scroll {
+        .card-grid {
+            padding: 7px;
+            width: auto;
+        }
+    }
+}
+
+.add-new-skill {
+    .card {
+        border-radius: 25%;
+        height: 40px;
+    }
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -10,6 +10,8 @@ import CardView from '../../components/cardview/cardview.component';
 import VerticalScroll from '../../components/vertical-scroll/vertical-scroll.component';
 import SkillCard from '../../components/skill-card/skill-card.component';
 import FormInput from '../../components/form-input/form-input.component';
+import ProjectEditSkill from '../../components/project-edit-skill/project-edit-skill.component';
+import CancelButton from '../../components/cancel-button/cancel-button.component';
 
 class UserProject extends React.Component {
     constructor(props) {
@@ -19,12 +21,12 @@ class UserProject extends React.Component {
             isAddProject: false,
             isEditProject: false,
             editProjectKey: null,
-            projectsCount: 8,
+            tempSkill: "",
             projects: [
                 {
                     title: "project-1",
                     description: "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
-                    skills: ["python","reactJS"],
+                    skills: ["python","reactJS","python","reactJS","python","reactJS","python","reactJS","python","reactJS","python","reactJS","python","reactJS"],
                 },
                 {
                     title: "project-2",
@@ -77,6 +79,35 @@ class UserProject extends React.Component {
         )})
     }
 
+    addSkill = (id) => {
+        this.setState(({projects}) => ({
+            projects: [
+                ...projects.slice(0,id),
+                {
+                    ...projects[id],
+                    skills: this.state.projects[id].skills.concat(this.state.tempSkill),
+                },
+                ...projects.slice(id+1)
+            ],
+            tempSkill: "",
+        }))
+    }
+
+    removeSkill = (remove_skill,id) => {
+        this.setState(({projects}) => ({
+            projects: [
+                ...projects.slice(0,id),
+                {
+                    ...projects[id],
+                    skills: this.state.projects[id].skills.filter(
+                        skill => { return skill !== remove_skill}
+                    )
+                },
+                ...projects.slice(id+1)
+            ]
+        }))
+    }
+
     editProjectDetails= (id) => {
         console.log(id);
         console.log(this.state.projects);
@@ -124,6 +155,26 @@ class UserProject extends React.Component {
                     </Card>
                     <Card>
                         <h2 className="inner-header">Required Skill</h2>
+                        <div className="add-new-skill">
+                            <FormInput placeholder="Skill" value={this.state.tempSkill} onChange={e => {this.setState({tempSkill: e.target.value})}} />
+                            <CustomButton title="Add Skill" onClick={() => this.addSkill(id)}/>
+                        </div>
+                        <br /><br />
+                        <div className="user-project-edit-skill">
+                            <VerticalScroll height="300px">
+                                <CardGrid gridColumn="1fr 1fr 1fr">
+                                    {
+                                        this.state.projects[id].skills.map(skill => {
+                                            return (
+                                                <ProjectEditSkill skill={skill}>
+                                                    <CancelButton onClick={() => this.removeSkill(skill,id)} />
+                                                </ProjectEditSkill>   
+                                            )
+                                        })
+                                    }
+                                </CardGrid>
+                            </VerticalScroll>
+                        </div>
                     </Card>
                 </CardGrid>
                 <div className="custom-save">
