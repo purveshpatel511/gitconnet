@@ -12,6 +12,7 @@ import SkillCard from '../../components/skill-card/skill-card.component';
 import FormInput from '../../components/form-input/form-input.component';
 import ProjectEditSkill from '../../components/project-edit-skill/project-edit-skill.component';
 import CancelButton from '../../components/cancel-button/cancel-button.component';
+import FormTextbox from '../../components/form-textbox/form-textbox.component';
 
 class UserProject extends React.Component {
     constructor(props) {
@@ -115,6 +116,7 @@ class UserProject extends React.Component {
     editProjectDetails = (id) => {
         return(
             <div className="edit-project-section">
+                <br />
                 <CardGrid gridColumn="1fr 1fr">
                     <Card>
                         <VerticalScroll height="500px">
@@ -179,6 +181,7 @@ class UserProject extends React.Component {
                         </div>
                     </Card>
                 </CardGrid>
+                <br/>
                 <div className="custom-save">
                     <CustomButton title="Save Details" onClick={() => {this.setState({isEditProject: false})}} />
                 </div>
@@ -189,6 +192,7 @@ class UserProject extends React.Component {
     addNewProject = () => {
         return(
             <div className="add-project-section">
+                <br/>
                 <CardGrid gridColumn="1fr 1fr">
                     <Card>
                         <VerticalScroll height="500px">
@@ -205,6 +209,7 @@ class UserProject extends React.Component {
                                 </div>
                                 <FormInput placeholder="Enter Description" value={this.state.newProjectDescription} onChange={(e) => {this.setState({newProjectDescription: e.target.value})}} />
                             </div>
+                            <br /><br />
                             <div className="project-url-section">
                                 <div className="title-card">
                                     <Card><h3>Description</h3></Card>
@@ -239,19 +244,33 @@ class UserProject extends React.Component {
                         </div>
                     </Card>
                 </CardGrid>
-                <div className="custom-save">
-                    <CustomButton title="Save Details" onClick={() => {this.setState({
-                        isAddProject: false,
-                        projects: this.state.projects.concat({
-                            title: this.state.newProjectTitle,
-                            description: this.state.newProjectDescription,
-                            skills: this.state.newProjectSkills
-                        }),
-                        newProjectTitle: "",
-                        newProjectDescription: "",
-                        newProjectSkills: [],
-                        newProjectURL: "",
-                    })}} />
+                <br />
+                <div className="add-remove-project">
+                    <CardGrid gridColumn="1fr 1fr">
+                        <div className="custom-save">
+                            <CustomButton title="Save Details" onClick={() => {this.setState({
+                                isAddProject: false,
+                                projects: this.state.projects.concat({
+                                    title: this.state.newProjectTitle,
+                                    description: this.state.newProjectDescription,
+                                    skills: this.state.newProjectSkills
+                                }),
+                                newProjectTitle: "",
+                                newProjectDescription: "",
+                                newProjectSkills: [],
+                                newProjectURL: "",
+                            })}} />
+                        </div>
+                        <div className="discard-save">
+                            <CustomButton title="Discard Project" onClick={() => {this.setState({
+                                isAddProject: false,
+                                newProjectTitle: "",
+                                newProjectDescription: "",
+                                newProjectSkills: [],
+                                newProjectURL: ""
+                            })}} />
+                        </div>
+                    </CardGrid>
                 </div>
             </div>
         )

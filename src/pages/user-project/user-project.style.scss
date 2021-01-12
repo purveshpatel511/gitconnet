@@ -56,6 +56,42 @@
     }
 }
 
+.add-project-section {
+    .card {
+        height: 550px;
+        border-radius: 5%; 
+    }
+    .project-url-section,
+    .description-section,
+    .title-section {
+        display: flex;
+        justify-content: space-evenly;
+        .title-card {
+            .card {
+                width: 180px;
+                height: 40px;
+                border-radius: 25%;
+                h3 {
+                    text-align: center;
+                    margin-top: 10px;
+                }
+            }
+        }
+        .card{
+            height: 40px;
+        }
+        .custom-input {
+            width: 400px;
+            border-radius: 5%;
+        }
+    }
+    .custom-save {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+}
+
 .inner-header {
     text-align: center;
     position: sticky;
@@ -67,6 +103,9 @@
         .card-grid {
             padding: 7px;
             width: auto;
+            .card {
+                width: 170px;
+            }
         }
     }
 }
@@ -78,4 +117,12 @@
     }
     display: flex;
     justify-content: space-evenly;
+}
+
+
+.add-remove-project {
+    .card-grid{
+        width: min-content;
+        justify-content: space-evenly;
+    }
 }
