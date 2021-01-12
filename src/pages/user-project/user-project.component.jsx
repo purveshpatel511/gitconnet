@@ -22,6 +22,10 @@ class UserProject extends React.Component {
             isEditProject: false,
             editProjectKey: null,
             tempSkill: "",
+            newProjectTitle: "",
+            newProjectDescription: "",
+            newProjectURL: "",
+            newProjectSkills: [],
             projects: [
                 {
                     title: "project-1",
@@ -108,9 +112,7 @@ class UserProject extends React.Component {
         }))
     }
 
-    editProjectDetails= (id) => {
-        console.log(id);
-        console.log(this.state.projects);
+    editProjectDetails = (id) => {
         return(
             <div className="edit-project-section">
                 <CardGrid gridColumn="1fr 1fr">
@@ -184,8 +186,75 @@ class UserProject extends React.Component {
         )
     }
 
-    renderCard() {
-        
+    addNewProject = () => {
+        return(
+            <div className="add-project-section">
+                <CardGrid gridColumn="1fr 1fr">
+                    <Card>
+                        <VerticalScroll height="500px">
+                            <div className="title-section">
+                                <div className="title-card">
+                                    <Card><h3>Title</h3></Card>
+                                </div>
+                                <FormInput placeholder="Enter Title" value={this.state.newProjectTitle} onChange={(e) => {this.setState({newProjectTitle: e.target.value})}} />
+                            </div>
+                            <br /><br />
+                            <div className="description-section">
+                                <div className="title-card">
+                                    <Card><h3>Description</h3></Card>
+                                </div>
+                                <FormInput placeholder="Enter Description" value={this.state.newProjectDescription} onChange={(e) => {this.setState({newProjectDescription: e.target.value})}} />
+                            </div>
+                            <div className="project-url-section">
+                                <div className="title-card">
+                                    <Card><h3>Description</h3></Card>
+                                </div>
+                                <FormInput placeholder="Enter Project URL" value={this.state.newProjectURL} onChange={(e) => {this.setState({newProjectURL: e.target.value})}} />
+                            </div>
+                        </VerticalScroll>
+                    </Card>
+                    <Card>
+                        <h2 className="inner-header">Required Skill</h2>
+                        <div className="add-new-skill">
+                            <FormInput placeholder="Skill" value={this.state.tempSkill} onChange={e => {this.setState({tempSkill: e.target.value})}} />
+                            <CustomButton title="Add Skill" onClick={() => {this.setState({newProjectSkills: this.state.newProjectSkills.concat(this.state.tempSkill), tempSkill: ""})}}/>
+                        </div>
+                        <br /><br />
+                        <div className="user-project-edit-skill">
+                            <VerticalScroll height="300px">
+                                <CardGrid gridColumn="1fr 1fr 1fr">
+                                    {
+                                        this.state.newProjectSkills.map(skill => {
+                                            return (
+                                                <ProjectEditSkill skill={skill}>
+                                                    <CancelButton onClick={() => {this.setState({newProjectSkills: this.state.newProjectSkills.filter(
+                                                        (newSkill) => {return newSkill !== skill}
+                                                    )})}} />
+                                                </ProjectEditSkill>   
+                                            )
+                                        })
+                                    }
+                                </CardGrid>
+                            </VerticalScroll>
+                        </div>
+                    </Card>
+                </CardGrid>
+                <div className="custom-save">
+                    <CustomButton title="Save Details" onClick={() => {this.setState({
+                        isAddProject: false,
+                        projects: this.state.projects.concat({
+                            title: this.state.newProjectTitle,
+                            description: this.state.newProjectDescription,
+                            skills: this.state.newProjectSkills
+                        }),
+                        newProjectTitle: "",
+                        newProjectDescription: "",
+                        newProjectSkills: [],
+                        newProjectURL: "",
+                    })}} />
+                </div>
+            </div>
+        )
     }
 
     renderProjects() {
@@ -217,7 +286,9 @@ class UserProject extends React.Component {
         }
         else{
             if(this.state.isAddProject){
-                <h2>isAddProject</h2>
+                return(
+                    this.addNewProject()
+                )
             }
             else{
                 return(
@@ -239,7 +310,7 @@ class UserProject extends React.Component {
             }
             else{
                 return(
-                    <CustomButton title="Add Project" />
+                    <CustomButton title="Add Project" onClick={() => {this.setState({isAddProject: true})}} />
                 )
             }
         }

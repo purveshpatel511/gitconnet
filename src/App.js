@@ -24,7 +24,7 @@ function App() {
       {/* <ProjectEditSkill id="11" skill="Python">
         <CancelButton />
       </ProjectEditSkill> */}
-      {/* <UserProject /> */}
+      <UserProject />
       {/* <UserProfile /> */}
       {/* <Notification /> */}
       {/* <PageNotFound /> */}
