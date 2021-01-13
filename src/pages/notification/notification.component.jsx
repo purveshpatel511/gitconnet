@@ -6,7 +6,7 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import TextCard from '../../components/text-card/text-card.component';
 import Card from '../../components/card/card.component';
 import VerticalScroll from '../../components/vertical-scroll/vertical-scroll.component';
-import CardView from '../../components/cardview/cardview.component';
+import ProjectCardView from '../../components/projectcardview/projectcardview.component';
 import CardList from '../../components/cardlist/cardlist.component';
 
 class Notification extends React.Component {
@@ -102,10 +102,10 @@ class Notification extends React.Component {
                         <Card>
                             <h2 className="notification-title">Collabration Requests</h2>
                             <VerticalScroll height="520px">
-                                <CardView />
-                                <CardView />
-                                <CardView />
-                                <CardView />
+                                <ProjectCardView />
+                                <ProjectCardView />
+                                <ProjectCardView />
+                                <ProjectCardView />
                             </VerticalScroll>
                         </Card>
                         <Card>
@@ -113,7 +113,7 @@ class Notification extends React.Component {
                             <VerticalScroll height="520px">
                                 {
                                     this.state.collabrations.map(collabration => {
-                                        <CardView user={collabration.user} requestedProject={collabration.requestedProject} />
+                                        <ProjectCardView user={collabration.user} requestedProject={collabration.requestedProject} />
                                     })
                                 }
                             </VerticalScroll>

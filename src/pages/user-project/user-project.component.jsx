@@ -6,7 +6,7 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import CardGrid from '../../components/cardgrid/cardgrid.component';
 import CardList from '../../components/cardlist/cardlist.component';
 import Card from '../../components/card/card.component';
-import CardView from '../../components/cardview/cardview.component';
+import ProjectCardView from '../../components/projectcardview/projectcardview.component';
 import VerticalScroll from '../../components/vertical-scroll/vertical-scroll.component';
 import SkillCard from '../../components/skill-card/skill-card.component';
 import FormInput from '../../components/form-input/form-input.component';
@@ -283,12 +283,12 @@ class UserProject extends React.Component {
                     <CardList>
                         {
                             this.state.projects.map(project => (
-                                <CardView projectTitle={project.title} projectDescription={project.description}>
+                                <ProjectCardView projectTitle={project.title} projectDescription={project.description} projectSkill={project.skills}>
                                     <CardGrid gridColumn="1fr 1fr">
                                         <CustomButton title="Edit Details" onClick={() => (this.resetKey(),this.setState({isEditProject: true, editProjectKey: project.key}))} />
                                         <CustomButton title="Remove Project" onClick={() => (this.resetKey(),this.removeProject(project.key))} />
                                     </CardGrid>
-                                </CardView>
+                                </ProjectCardView>
                             ))
                         }
                     </CardList>

@@ -6,7 +6,7 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import CardGrid from '../../components/cardgrid/cardgrid.component';
 import CardList from '../../components/cardlist/cardlist.component';
 import Card from '../../components/card/card.component';
-import CardView from '../../components/cardview/cardview.component';
+import ProjectCardView from '../../components/projectcardview/projectcardview.component';
 import VerticalScroll from '../../components/vertical-scroll/vertical-scroll.component';
 import SkillCard from '../../components/skill-card/skill-card.component';
 import CustomButtonCard from '../../components/custom-button-card/custom-button-card.component';
@@ -321,22 +321,11 @@ class UserProfile extends React.Component {
                             <VerticalScroll height="300px">
                                 <br />
                                 <CardGrid gridColumn="1fr 1fr 1fr">
-                                    <CardView projectTitle="Project1" projectDescription="This is Description">
+                                    <ProjectCardView projectTitle="Project1" projectDescription="This is Description">
                                         <CardGrid gridColumn="1fr">
                                             <CustomButton title="Remove" />
                                         </CardGrid>
-                                    </CardView>
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
+                                    </ProjectCardView>
                                 </CardGrid>
                             </VerticalScroll>
                         </Card>
@@ -348,23 +337,12 @@ class UserProfile extends React.Component {
                             <VerticalScroll height="300px">
                                 <br />
                                 <CardGrid gridColumn="1fr 1fr 1fr">
-                                    <CardView projectTitle="Project1" projectDescription="This is Description">
+                                    <ProjectCardView projectTitle="Project1" projectDescription="This is Description">
                                         <CardGrid gridColumn="1fr 1fr">
                                             <CustomButton title="Accept" />
                                             <CustomButton title="Reject" />
                                         </CardGrid>
-                                    </CardView>
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
-                                    <CardView />
+                                    </ProjectCardView>
                                 </CardGrid>
                             </VerticalScroll>
                         </Card>

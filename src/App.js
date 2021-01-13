@@ -1,7 +1,7 @@
 import './App.css';
 import CustomButton from './components/custom-button/custom-button.component';
 import VerticalScroll from './components/vertical-scroll/vertical-scroll.component'
-import CardView from './components/cardview/cardview.component'
+import ProjectCardView from './components/projectcardview/projectcardview.component'
 import Header from './components/header/header.component'
 import NeumorphicText from './components/neumorphic-text/neumorphic-text.component'
 import PageNotFound from './pages/404Page/404Page.component'
@@ -24,9 +24,9 @@ function App() {
       {/* <ProjectEditSkill id="11" skill="Python">
         <CancelButton />
       </ProjectEditSkill> */}
-      {/* <UserProject /> */}
+      <UserProject />
       {/* <UserProfile /> */}
-      <Notification />
+      {/* <Notification /> */}
       {/* <PageNotFound /> */}
       {/* <SkillCard imageURL={AWSSVG} imageText="AWS"/> */}
       {/* <VerticalScroll height="600px">

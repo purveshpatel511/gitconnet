@@ -16,7 +16,7 @@
 //     transform: scale(1.00);
 // }
 
-.card-view {
+.project-card-view {
     background-color: #e0e5ec;
     position: relative;
     padding: 25px;
@@ -31,10 +31,21 @@
     &:hover {
         transform: scale(1.02);
     }
-}
 
-.card-view {
-    .card-grid {
-        width: auto;
+    .skills-block {
+        display: flex;
+        justify-content: center;
+        .card {
+            height:fit-content;
+            width: fit-content;
+            margin: 10px;
+            padding: 7px;
+        }
     }
 }
+
+// .project-card-view {
+//     .card-grid {
+//         width: auto;
+//     }
+// }
