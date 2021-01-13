@@ -33,6 +33,8 @@ import GithubSVG from '../../media/github.svg';
 import LinkedinSVG from '../../media/linkedin.svg';
 import StackoverflowSVG from '../../media/stackoverflow.svg';
 import PlusSVG from '../../media/plus.svg';
+import BookmarkCard from '../../components/bookmark-card/bookmark-card.component';
+import ContributionCard from '../../components/contribution-card/contribution-card.component';
 
 class UserProfile extends React.Component {
     constructor(props) {
@@ -147,6 +149,98 @@ class UserProfile extends React.Component {
                     key:19,
                     imageURL: CodeIgniterSVG,
                     imageText: "Web Services"
+                }
+            ],
+            bookmarks: [
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-2",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-3",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-4",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-5",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-6",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-7",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-8",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-9",
+                    projectDescription: "This is small description about project."
+                }
+            ],
+            contributions: [
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
+                },
+                {
+                    projectTitle: "Project-1",
+                    projectDescription: "This is small description about project."
                 }
             ]
         }
@@ -321,11 +415,17 @@ class UserProfile extends React.Component {
                             <VerticalScroll height="300px">
                                 <br />
                                 <CardGrid gridColumn="1fr 1fr 1fr">
-                                    <ProjectCardView projectTitle="Project1" projectDescription="This is Description">
-                                        <CardGrid gridColumn="1fr">
-                                            <CustomButton title="Remove" />
-                                        </CardGrid>
-                                    </ProjectCardView>
+                                    {
+                                        this.state.bookmarks.map((bookmark) => (
+                                            <BookmarkCard projectTitle={bookmark.projectTitle} projectDescription={bookmark.projectDescription}>
+                                                <CustomButton title="Remove" onClick={() => {this.setState({
+                                                    bookmarks: this.state.bookmarks.filter(removeBookmark => {
+                                                        return removeBookmark.projectTitle !== bookmark.projectTitle
+                                                    })
+                                                })}}/>
+                                            </BookmarkCard>
+                                        ))
+                                    }
                                 </CardGrid>
                             </VerticalScroll>
                         </Card>
@@ -337,12 +437,11 @@ class UserProfile extends React.Component {
                             <VerticalScroll height="300px">
                                 <br />
                                 <CardGrid gridColumn="1fr 1fr 1fr">
-                                    <ProjectCardView projectTitle="Project1" projectDescription="This is Description">
-                                        <CardGrid gridColumn="1fr 1fr">
-                                            <CustomButton title="Accept" />
-                                            <CustomButton title="Reject" />
-                                        </CardGrid>
-                                    </ProjectCardView>
+                                    {
+                                        this.state.contributions.map((contribution) => (
+                                            <ContributionCard projectTitle={contribution.projectTitle} projectDescription={contribution.projectDescription} />
+                                        ))
+                                    }
                                 </CardGrid>
                             </VerticalScroll>
                         </Card>

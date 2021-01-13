@@ -24,8 +24,8 @@ function App() {
       {/* <ProjectEditSkill id="11" skill="Python">
         <CancelButton />
       </ProjectEditSkill> */}
-      <UserProject />
-      {/* <UserProfile /> */}
+      {/* <UserProject /> */}
+      <UserProfile />
       {/* <Notification /> */}
       {/* <PageNotFound /> */}
       {/* <SkillCard imageURL={AWSSVG} imageText="AWS"/> */}
