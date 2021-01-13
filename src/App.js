@@ -25,8 +25,8 @@ function App() {
         <CancelButton />
       </ProjectEditSkill> */}
       {/* <UserProject /> */}
-      <UserProfile />
-      {/* <Notification /> */}
+      {/* <UserProfile /> */}
+      <Notification />
       {/* <PageNotFound /> */}
       {/* <SkillCard imageURL={AWSSVG} imageText="AWS"/> */}
       {/* <VerticalScroll height="600px">

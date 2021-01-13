@@ -1,17 +1,28 @@
 .notification {
-
         .card-grid {
             .card {
                 padding: 15px;
-                .notification-title {
-                    display: inline-block;
-                    width: 100%;
-                    text-align: center;
-                }
-                .card-view {
-                    margin: 15px;
+                .card-list {
+                    width: auto;
+                    .notification-title {
+                        display: inline-block;
+                        width: 100%;
+                        text-align: center;
+                    }
+                    .collabration-notification-card {
+                        margin: 15px;
+                        .mod-button {
+                            display: flex;
+                            justify-content: space-evenly;
+                        }
+                    }
                 }
             }
-        }
-    
+        }   
+}
+
+.inner-header {
+    text-align: center;
+    position: sticky;
+    z-index: 997;
 }

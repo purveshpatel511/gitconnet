@@ -8,6 +8,8 @@ import Card from '../../components/card/card.component';
 import VerticalScroll from '../../components/vertical-scroll/vertical-scroll.component';
 import ProjectCardView from '../../components/projectcardview/projectcardview.component';
 import CardList from '../../components/cardlist/cardlist.component';
+import CollabrationNotificationCard from '../../components/collabration-notification-card/collabration-notification-card.component';
+import ContributionNotificationCard from '../../components/contribution-notification-card/contribution-notification-card.component';
 
 class Notification extends React.Component {
     constructor() {
@@ -50,43 +52,51 @@ class Notification extends React.Component {
             ],
             contributions: [
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 },
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 },
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 },
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 },
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 },
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 },
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 },
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 },
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 },
                 {
-                    user: "purvesh",
+                    status: "Ongoing",
+                    requestedProject: "gitConnet"
+                },
+                {
+                    status: "Ongoing",
+                    requestedProject: "gitConnet"
+                },
+                {
+                    status: "Ongoing",
                     requestedProject: "gitConnet"
                 }
             ]
@@ -100,22 +110,32 @@ class Notification extends React.Component {
                 <br /><br />
                     <CardGrid gridColumn="1fr 1fr">
                         <Card>
-                            <h2 className="notification-title">Collabration Requests</h2>
+                            <h2 className="inner-header">Collabration Requests</h2>
                             <VerticalScroll height="520px">
-                                <ProjectCardView />
-                                <ProjectCardView />
-                                <ProjectCardView />
-                                <ProjectCardView />
+                                <CardList>
+                                    {
+                                        this.state.collabrations.map(collabration => (
+                                            <CollabrationNotificationCard user={collabration.user} requestedProject={collabration.requestedProject}>
+                                                <CustomButton title="Accept" />
+                                                <CustomButton title="Reject" />
+                                            </CollabrationNotificationCard>
+                                        ))
+                                    }
+                                </CardList>
                             </VerticalScroll>
                         </Card>
                         <Card>
-                            <h2 className="notification-title">Contribution Requests</h2>
+                            <h2 className="inner-header">Contribution Requests</h2>
                             <VerticalScroll height="520px">
-                                {
-                                    this.state.collabrations.map(collabration => {
-                                        <ProjectCardView user={collabration.user} requestedProject={collabration.requestedProject} />
-                                    })
-                                }
+                                <CardList>
+                                    {
+                                        this.state.contributions.map(contribution => (
+                                            <ContributionNotificationCard requestedProject={contribution.requestedProject} status={contribution.status}>
+                                                <CustomButton title="Remove" />
+                                            </ContributionNotificationCard>
+                                        ))
+                                    }
+                                </CardList>
                             </VerticalScroll>
                         </Card>
                     </CardGrid>
