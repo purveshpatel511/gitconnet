@@ -15,18 +15,21 @@ import UserProject from './pages/user-project/user-project.component';
 import Notification from './pages/notification/notification.component';
 import ProjectEditSkill from './components/project-edit-skill/project-edit-skill.component';
 import CancelButton from './components/cancel-button/cancel-button.component';
+import SearchPage from './pages/search-page/search-page.component';
+
 
 function App() {
   return (
     <div className="App">
       <Header />
       <br /><br />
+      <SearchPage />
       {/* <ProjectEditSkill id="11" skill="Python">
         <CancelButton />
       </ProjectEditSkill> */}
       {/* <UserProject /> */}
       {/* <UserProfile /> */}
-      <Notification />
+      {/* <Notification /> */}
       {/* <PageNotFound /> */}
       {/* <SkillCard imageURL={AWSSVG} imageText="AWS"/> */}
       {/* <VerticalScroll height="600px">
