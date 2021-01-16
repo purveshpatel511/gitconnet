@@ -11,7 +11,7 @@ const Header = () => {
             <CustomButton title="gitConnect" />
             </div>
             <div className="options">
-                <CustomButton title="Projects" />
+                <CustomButton title="Projects"/>
                 <CustomButton title="Notifications" />
                 <CustomButton title="Sign Out" />
             </div>

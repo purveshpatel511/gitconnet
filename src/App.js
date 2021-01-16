@@ -23,12 +23,12 @@ function App() {
     <div className="App">
       <Header />
       <br /><br />
-      <SearchPage />
+      {/* <SearchPage /> */}
       {/* <ProjectEditSkill id="11" skill="Python">
         <CancelButton />
       </ProjectEditSkill> */}
       {/* <UserProject /> */}
-      {/* <UserProfile /> */}
+      <UserProfile />
       {/* <Notification /> */}
       {/* <PageNotFound /> */}
       {/* <SkillCard imageURL={AWSSVG} imageText="AWS"/> */}

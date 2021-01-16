@@ -325,11 +325,23 @@ class UserProfile extends React.Component {
     }
 
     addSkill = () => {
+        var logosDict = {
+            amazon: ['aws','web services','amazon web services','webservices']
+        }
+        var logoURL = BabelSVG;
+        var logoName = "other"
+        for(var key in logosDict){
+            if(logosDict[key].includes(this.state.tempSkill)){
+                var logoName = key;
+            }
+        }
+
+        if(logoName === "amazon"){ logoURL = AWSSVG }
+
         var keyvalue = this.state.skillCount;
         var keyvalue = keyvalue + 1;
-        console.log("keyvalue: "+keyvalue);
         this.setState({
-            skills: this.state.skills.concat({key:keyvalue, imageURL: BabelSVG, imageText:`${this.state.tempSkill}`}),
+            skills: this.state.skills.concat({key:keyvalue, imageURL: logoURL, imageText:`${this.state.tempSkill}`}),
             skillCount: keyvalue,
             tempSkill: "",
         });
