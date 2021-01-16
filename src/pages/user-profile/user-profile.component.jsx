@@ -28,6 +28,22 @@ import CodeIgniterSVG from '../../components/skill-card/programing-language-logo
 import CPlusPlusSVG from '../../components/skill-card/programing-language-logos/cplusplus.svg';
 import CSharpSVG from '../../components/skill-card/programing-language-logos/csharp.svg';
 import CSS3SVG from '../../components/skill-card/programing-language-logos/css3.svg';
+import PythonSVG from '../../components/skill-card/programing-language-logos/python.svg';
+import JavaSVG from '../../components/skill-card/programing-language-logos/java.svg';
+import SwiftSVG from '../../components/skill-card/programing-language-logos/swift.svg';
+import FlutterSVG from '../../components/skill-card/programing-language-logos/flutter.svg';
+import DartSVG from '../../components/skill-card/programing-language-logos/dart.svg';
+import PerlSVG from '../../components/skill-card/programing-language-logos/perl.svg';
+import RubySVG from '../../components/skill-card/programing-language-logos/ruby.svg';
+import RustSVG from '../../components/skill-card/programing-language-logos/rust.svg';
+import DockerSVG from '../../components/skill-card/programing-language-logos/docker.svg';
+import KubernatesSVG from '../../components/skill-card/programing-language-logos/kubernates.svg';
+import HtmlSVG from '../../components/skill-card/programing-language-logos/html.svg';
+import JavaScriptSVG from '../../components/skill-card/programing-language-logos/javascript.svg';
+import ReactjsSVG from '../../components/skill-card/programing-language-logos/reactjs.svg';
+import NodejsSVG from '../../components/skill-card/programing-language-logos/nodejs.svg';
+import PHPSVG from '../../components/skill-card/programing-language-logos/php.svg';
+import OtherSVG from '../../components/skill-card/programing-language-logos/other.svg';
 
 import GithubSVG from '../../media/github.svg';
 import LinkedinSVG from '../../media/linkedin.svg';
@@ -326,9 +342,38 @@ class UserProfile extends React.Component {
 
     addSkill = () => {
         var logosDict = {
-            amazon: ['aws','web services','amazon web services','webservices']
+            amazon: ['aws','web services','amazon web services','webservices'],
+            angularjs: ['angular','angularjs'],
+            apache: ['apache','apache web'],
+            appcelerator: ['appcelerator'],
+            atom: ['atom','atom code','atom editor'],
+            babel: ['babel'],
+            backbonejs: ['backbonejs'],
+            bitbucket: ['bitbucket'],
+            bootstrap: ['bootstrap'],
+            c: ['c','c language'],
+            codeigniter: ['codeigniter'],
+            cplusplus: ['cplusplus','c++','cpp'],
+            csharp: ['csharp','c#'],
+            css3: ['css','css3'],
+            python: ['python','python2','python3','python3.x'],
+            java: ['java'],
+            android: ['android','android studio'],
+            swift: ['swift','iOS'],
+            flutter: ['flutter'],
+            dart: ['dart'],
+            perl: ['perl'],
+            ruby: ['ruby'],
+            rust: ['rust'],
+            docker: ['docker','container'],
+            kubernates: ['kubernates'],
+            html: ['html','html5'],
+            javascript: ['javascript'],
+            reactjs: ['reactjs','reactJS'],
+            nodejs: ['node','nodejs','nodeJS'],
+            php: ['php'],
         }
-        var logoURL = BabelSVG;
+        var logoURL = OtherSVG;
         var logoName = "other"
         for(var key in logosDict){
             if(logosDict[key].includes(this.state.tempSkill)){
@@ -337,6 +382,35 @@ class UserProfile extends React.Component {
         }
 
         if(logoName === "amazon"){ logoURL = AWSSVG }
+        if(logoName === "angularjs"){ logoURL = AngularjsSVG }
+        if(logoName === "apache"){ logoURL = ApacheSVG }
+        if(logoName === "appcelerator"){ logoURL = AppceleratorSVG }
+        if(logoName === "atom"){ logoURL = AtomSVG }
+        if(logoName === "babel"){ logoURL = BabelSVG }
+        if(logoName === "backbonejs"){ logoURL = BackBonejsSVG }
+        if(logoName === "bitbucket"){ logoURL = BitBucketSVG }
+        if(logoName === "bootstrap"){ logoURL = BootStrapSVG }
+        if(logoName === "c"){ logoURL = CSVG }
+        if(logoName === "codeigniter"){ logoURL = CodeIgniterSVG }
+        if(logoName === "cplusplus"){ logoURL = CPlusPlusSVG }
+        if(logoName === "csharp"){ logoURL = CSharpSVG }
+        if(logoName === "css3"){ logoURL = CSS3SVG }
+        if(logoName === "python"){ logoURL = PythonSVG }
+        if(logoName === "java"){ logoURL = JavaSVG }
+        if(logoName === "android"){ logoURL = AndroidSVG }
+        if(logoName === "swift"){ logoURL = SwiftSVG }
+        if(logoName === "flutter"){ logoURL = FlutterSVG }
+        if(logoName === "dart"){ logoURL = DartSVG }
+        if(logoName === "perl"){ logoURL = PerlSVG }
+        if(logoName === "ruby"){ logoURL = RubySVG }
+        if(logoName === "rust"){ logoURL = RustSVG }
+        if(logoName === "docker"){ logoURL = DockerSVG }
+        if(logoName === "kubernates"){ logoURL = KubernatesSVG }
+        if(logoName === "html"){ logoURL = HtmlSVG }
+        if(logoName === "javascript"){ logoURL = JavaScriptSVG }
+        if(logoName === "reactjs"){ logoURL = ReactjsSVG }
+        if(logoName === "nodejs"){ logoURL = NodejsSVG }
+        if(logoName === "php"){ logoURL = PHPSVG }
 
         var keyvalue = this.state.skillCount;
         var keyvalue = keyvalue + 1;
