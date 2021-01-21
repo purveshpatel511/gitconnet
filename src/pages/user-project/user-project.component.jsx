@@ -1,6 +1,9 @@
 import React from 'react';
 import './user-project.style.scss';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import TextCard from '../../components/text-card/text-card.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import CardGrid from '../../components/cardgrid/cardgrid.component';
@@ -13,6 +16,7 @@ import FormInput from '../../components/form-input/form-input.component';
 import ProjectEditSkill from '../../components/project-edit-skill/project-edit-skill.component';
 import CancelButton from '../../components/cancel-button/cancel-button.component';
 import FormTextbox from '../../components/form-textbox/form-textbox.component';
+
 
 class UserProject extends React.Component {
     constructor(props) {
@@ -183,7 +187,7 @@ class UserProject extends React.Component {
                 </CardGrid>
                 <br/>
                 <div className="custom-save">
-                    <CustomButton title="Save Details" onClick={() => {this.setState({isEditProject: false})}} />
+                    <CustomButton title="Save Details" onClick={() => {this.setState({isEditProject: false}); this.successNotification()}} />
                 </div>
             </div>
         )
@@ -259,7 +263,9 @@ class UserProject extends React.Component {
                                 newProjectDescription: "",
                                 newProjectSkills: [],
                                 newProjectURL: "",
-                            })}} />
+                            });
+                            this.successNotification()
+                            }} />
                         </div>
                         <div className="discard-save">
                             <CustomButton title="Discard Project" onClick={() => {this.setState({
@@ -268,7 +274,9 @@ class UserProject extends React.Component {
                                 newProjectDescription: "",
                                 newProjectSkills: [],
                                 newProjectURL: ""
-                            })}} />
+                            });
+                            this.discardNotification()
+                            }} />
                         </div>
                     </CardGrid>
                 </div>
@@ -286,7 +294,7 @@ class UserProject extends React.Component {
                                 <ProjectCardView projectTitle={project.title} projectDescription={project.description} projectSkill={project.skills}>
                                     <CardGrid gridColumn="1fr 1fr">
                                         <CustomButton title="Edit Details" onClick={() => (this.resetKey(),this.setState({isEditProject: true, editProjectKey: project.key}))} />
-                                        <CustomButton title="Remove Project" onClick={() => (this.resetKey(),this.removeProject(project.key))} />
+                                        <CustomButton title="Remove Project" onClick={() => (this.resetKey(),this.removeProject(project.key), this.removeNotification())} />
                                     </CardGrid>
                                 </ProjectCardView>
                             ))
@@ -317,15 +325,27 @@ class UserProject extends React.Component {
         }
     }
 
+    successNotification() {
+        toast.success("Project Successfully Saved.")
+    }
+
+    discardNotification() {
+        toast.warning("Project Details Discard.")
+    }
+
+    removeNotification() {
+        toast.error("Project Removed.")
+    }
+
     renderMainButton() {
         if(this.state.isEditProject){
             return(
-                <CustomButton title="Save Details" onClick={() => {this.setState({isEditProject: false})}} />
+                <CustomButton title="Save Details" onClick={() => {this.setState({isEditProject: false}); this.successNotification()}} />
             )
         }
         else{
             if(this.state.isAddProject){
-                <CustomButton title="Save Details" onClick={() => {this.setState({isAddProject: false})}} />
+                <CustomButton title="Save Details" onClick={() => {this.setState({isAddProject: false}); this.successNotification()}} />
             }
             else{
                 return(
@@ -336,6 +356,7 @@ class UserProject extends React.Component {
     }
 
     render() {
+        toast.configure();
         return(
             <div className="user-project">
                 <div className="project-header">
