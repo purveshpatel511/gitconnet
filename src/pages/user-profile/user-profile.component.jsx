@@ -1,6 +1,9 @@
 import React from 'react';
 import './user-profile.style.scss';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import TextCard from '../../components/text-card/text-card.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import CardGrid from '../../components/cardgrid/cardgrid.component';
@@ -262,10 +265,19 @@ class UserProfile extends React.Component {
         }
     }
 
+    successNotification() {
+        toast.success("Successfully Saved");
+    }
+
+    removeNotification() {
+        toast.error("Bookmark Removed.");
+    }
+
     renderSaveButton() {
+        toast.configure();
         if(this.state.isEdit){
             return(
-                <CustomButton title="Save" onClick={()=>{this.setState({isEdit: false})}} />
+                <CustomButton title="Save" onClick={()=>{this.setState({isEdit: false}); this.successNotification()}} />
             );
         }
         else {
@@ -472,7 +484,9 @@ class UserProfile extends React.Component {
         }
     }
 
+
     render() {
+
         return(
             <div className="user-profile">
                     <div className="profile-header">
@@ -508,7 +522,9 @@ class UserProfile extends React.Component {
                                                     bookmarks: this.state.bookmarks.filter(removeBookmark => {
                                                         return removeBookmark.projectTitle !== bookmark.projectTitle
                                                     })
-                                                })}}/>
+                                                });
+                                                this.removeNotification()
+                                                }}/>
                                             </BookmarkCard>
                                         ))
                                     }
