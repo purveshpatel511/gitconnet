@@ -1,21 +1,33 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Link, BrowserRouter } from 'react-router-dom';
 import './header.style.scss';
 
 import CustomButton from '../custom-button/custom-button.component';
 
 const Header = () => {
     return(
-        <header className="header">
+        <nav className="header">
             <div className="logo">
-            <CustomButton title="gitConnect" />
+                <CustomButton title="GitConnect" />
             </div>
             <div className="options">
-                <CustomButton title="Projects"/>
-                <CustomButton title="Notifications" />
-                <CustomButton title="Sign Out" />
+                <Link to="/">
+                    <CustomButton title="Search" />
+                </Link>
+                <Link to="/profile">
+                    <CustomButton title="Profile" />
+                </Link>
+                <Link to="/projects">
+                    <CustomButton title="Project" />
+                </Link>
+                <Link to="/notifications">
+                    <CustomButton title="Notification" />
+                </Link>
+                <Link to="/signout">
+                    <CustomButton title="Sign out" />
+                </Link>
             </div>
-        </header>
+        </nav>
     );
 }
 

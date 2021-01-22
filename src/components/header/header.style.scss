@@ -18,7 +18,11 @@
 
     .options {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-gap: 15px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-gap: 7px;
+    }
+
+    Link{
+        text-decoration: none;
     }
 }
