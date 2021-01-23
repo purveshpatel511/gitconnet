@@ -89,12 +89,13 @@ class UserProject extends React.Component {
     }
 
     addSkill = (id) => {
+        this.state.projects[id].skills.unshift(this.state.tempSkill);
         this.setState(({projects}) => ({
             projects: [
                 ...projects.slice(0,id),
                 {
                     ...projects[id],
-                    skills: this.state.projects[id].skills.concat(this.state.tempSkill),
+                    skills: this.state.projects[id].skills,
                 },
                 ...projects.slice(id+1)
             ],
@@ -226,7 +227,11 @@ class UserProject extends React.Component {
                         <h2 className="inner-header">Required Skill</h2>
                         <div className="add-new-skill">
                             <FormInput placeholder="Skill" value={this.state.tempSkill} onChange={e => {this.setState({tempSkill: e.target.value})}} />
-                            <CustomButton title="Add Skill" onClick={() => {this.setState({newProjectSkills: this.state.newProjectSkills.concat(this.state.tempSkill), tempSkill: ""})}}/>
+                            <CustomButton title="Add Skill" onClick={() => {
+                                this.state.newProjectSkills.unshift(this.state.tempSkill);
+                                this.setState({newProjectSkills: this.state.newProjectSkills, 
+                                tempSkill: ""})
+                                }}/>
                         </div>
                         <br /><br />
                         <div className="user-project-edit-skill">
@@ -252,18 +257,21 @@ class UserProject extends React.Component {
                 <div className="add-remove-project">
                     <CardGrid gridColumn="1fr 1fr">
                         <div className="custom-save">
-                            <CustomButton title="Save Details" onClick={() => {this.setState({
-                                isAddProject: false,
-                                projects: this.state.projects.concat({
+                            <CustomButton title="Save Details" onClick={() => {
+                                this.state.projects.unshift({
                                     title: this.state.newProjectTitle,
                                     description: this.state.newProjectDescription,
                                     skills: this.state.newProjectSkills
-                                }),
+                                });
+                                this.setState({
+                                isAddProject: false,
+                                projects: this.state.projects,
                                 newProjectTitle: "",
                                 newProjectDescription: "",
                                 newProjectSkills: [],
                                 newProjectURL: "",
                             });
+                            console.log(this.state.projects);
                             this.successNotification()
                             }} />
                         </div>
@@ -290,6 +298,7 @@ class UserProject extends React.Component {
                 <VerticalScroll height="600px">
                     <CardList>
                         {
+                            console.log(this.state),
                             this.state.projects.map(project => (
                                 <ProjectCardView projectTitle={project.title} projectDescription={project.description} projectSkill={project.skills}>
                                     <CardGrid gridColumn="1fr 1fr">

@@ -427,8 +427,9 @@ class UserProfile extends React.Component {
 
         var keyvalue = this.state.skillCount;
         var keyvalue = keyvalue + 1;
+        this.state.skills.unshift({key:keyvalue, imageURL: logoURL, imageText:`${this.state.tempSkill}`})
         this.setState({
-            skills: this.state.skills.unshift({key:keyvalue, imageURL: logoURL, imageText:`${this.state.tempSkill}`}),
+            skills: this.state.skills,
             skillCount: keyvalue,
             tempSkill: "",
         });
