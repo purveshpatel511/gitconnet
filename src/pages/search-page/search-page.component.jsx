@@ -66,7 +66,7 @@ class SearchPage extends React.Component {
 
         const { allProjects, searchQuery } = this.state;
         const filteredProjects = allProjects.filter(project => (
-            project.projectSkill.includes(searchQuery.toLowerCase())
+            project.projectSkill.includes(searchQuery.toLowerCase().trim())
         ))
 
         const searchQueryLength = this.state.searchQuery.length;

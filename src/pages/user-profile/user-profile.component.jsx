@@ -393,6 +393,7 @@ class UserProfile extends React.Component {
             }
         }
 
+        //use  switch case insted of if-else
         if(logoName === "amazon"){ logoURL = AWSSVG }
         if(logoName === "angularjs"){ logoURL = AngularjsSVG }
         if(logoName === "apache"){ logoURL = ApacheSVG }
