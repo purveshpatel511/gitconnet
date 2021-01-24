@@ -1,11 +1,20 @@
 import React from 'react';
 import './projectcardview.style.scss'
 
-import CustomButton from '../custom-button/custom-button.component';
 import Card from '../card/card.component';
 
+const moreSkillTag = (total_skill) => {
+    if(total_skill - 5 > 0){
+        return(
+            <Card>
+                <span className="project-skill">`${total_skill-5} More`</span>
+            </Card>
+        )
+    }
+};
+
+
 const ProjectCardView = (props) => {
-    console.log(props)
     return(
         <div className="project-card-view">
             <h2 className="project-title">{props.projectTitle}</h2>
@@ -13,11 +22,18 @@ const ProjectCardView = (props) => {
             <br/><br />
             <div className="skills-block">
                 {
-                    props.projectSkill.map((skill) => (
+                    props.projectSkill.slice(0,5).map((skill) => (
                         <Card>
                             <span className="project-skill">{skill}</span>
                         </Card>
                     ))
+                }
+                {
+                    (props.projectSkill.length-5 > 0)?
+                            <Card>
+                                <span className="project-skill">+{props.projectSkill.length-5} More</span>
+                            </Card> 
+                        : null
                 }
             </div>
             <br/><br />

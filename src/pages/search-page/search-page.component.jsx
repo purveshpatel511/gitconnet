@@ -20,13 +20,13 @@ class SearchPage extends React.Component {
                     user: "purvesh",
                     projectTitle: "gitConnect-1",
                     projectDescription: "This is small project for testing.",
-                    projectSkill: ["python"]
+                    projectSkill: ["python","aws","babel","aws","babel"]
                 },
                 {
                     user: "purvesh",
                     projectTitle: "gitConnect-2",
                     projectDescription: "This is small project for testing.",
-                    projectSkill: ["reactjs"]
+                    projectSkill: ["reactjs","aws","babel"]
                 },
                 {
                     user: "purvesh",
