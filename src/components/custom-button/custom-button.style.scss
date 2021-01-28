@@ -23,6 +23,7 @@
 
 .custom-button {
   background-color: #e0e5ec;
+  // background:  linear-gradient(145deg, #16a5ab, #1ac4cb);
   position: relative;
   border: none;
   height: 60px;
@@ -31,8 +32,20 @@
   outline: none;
   box-shadow: 9px 9px 16px rgba(163,177,198,0.6),
               -9px -9px 16px rgba(255,255,255,0.5);
-  border-radius: 25%;
+  // box-shadow:  20px 20px 60px #149ca2,
+  //            -20px -20px 60px #1cd2db;
+  // border-radius: 25%;
   font-size: 20px;
+
+//   border-radius: 18px;
+// background: #178ca4;
+// box-shadow:  5px 5px 36px #093842,
+//              -5px -5px 36px #25e0ff;
+
+             border-radius: 18px;
+// background: #7b2cbf;
+// box-shadow:  7px 7px 14px #798b94,
+//              -7px -7px 14px #c1ddec;
 
   &::after{
     content: "";

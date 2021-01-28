@@ -6,7 +6,6 @@ import UserProject from './pages/user-project/user-project.component';
 import Notification from './pages/notification/notification.component';
 import SearchPage from './pages/search-page/search-page.component';
 
-
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {

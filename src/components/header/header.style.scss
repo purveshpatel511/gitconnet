@@ -3,6 +3,7 @@
     position: sticky;
     top: 0;
     background-color: #e0e5ec;
+    // background-color: #9db4c0;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 15px;
@@ -15,6 +16,7 @@
     // font-size: 20px;
     justify-content: space-between;
     z-index: 999;
+    opacity: 100;
 
     .options {
         display: grid;
