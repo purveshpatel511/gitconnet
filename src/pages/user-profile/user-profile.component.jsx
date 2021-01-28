@@ -333,13 +333,55 @@ class UserProfile extends React.Component {
         else {
             return(
                 <div className="display-profile">
-                    <VerticalScroll height="350px">
-                        <h2>Name</h2><hr />
-                        <span>{this.state.name}</span>
-                        <br /><br />
-                        <h2>Username</h2><hr />
-                        <span>{this.state.userid}</span>
-                    </VerticalScroll>
+                    <div className="user-avatar">
+                        <Card>
+                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.WMW5O73STEkG9WnBALx2bQAAAA%26pid%3DApi&f=1" alt="avatar" />
+                        </Card>
+                    </div>
+                    <br />
+                    <br />
+                    {/* <VerticalScroll height="250px"> */}
+                        <div className="username">
+                            <div className="username-title">
+                                <Card>
+                                    <span><b>Name</b></span>
+                           </Card>
+                            </div>
+                            <div className="username-value">
+                                <Card>
+                                    <span>{this.state.name}</span>
+                                </Card>
+                            </div>
+                        </div>
+                        <br />
+                        <div className="userid">
+                            <div className="userid-title">
+                                <Card>
+                                    <span><b>UserID</b></span>
+                           </Card>
+                            </div>
+                            <div className="userid-value">
+                                <Card>
+                                    <span>{this.state.userid}</span>
+                                </Card>
+                            </div>
+                        </div>
+                        <br />
+                        <div className="user-email">
+                            <div className="user-email-title">
+                                <Card>
+                                    <span><b>Email</b></span>
+                           </Card>
+                            </div>
+                            <div className="user-email-value">
+                                <Card>
+                                    <span>{this.state.userid}</span>
+                                </Card>
+                            </div>
+                        </div>
+                    {/* </VerticalScroll> */}
+                    <br />
+                    <br />
                     <div className="modify-grid">
                         <CardGrid gridColumn="1fr 1fr 1fr">
                             <CustomButtonCard classname="github-social" imageURL={GithubSVG} imageText="github" />
