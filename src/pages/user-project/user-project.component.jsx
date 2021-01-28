@@ -86,48 +86,56 @@ class UserProject extends React.Component {
             "python",
             "reactJS",
           ],
+          opening: 11,
         },
         {
           title: "project-2",
           description:
             "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
           skills: ["python", "reactJS"],
+          opening: 11,
         },
         {
           title: "project-3",
           description:
             "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
           skills: ["python", "reactJS"],
+          opening: 11,
         },
         {
           title: "project-4",
           description:
             "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
           skills: ["python", "reactJS"],
+          opening: 11,
         },
         {
           title: "project-5",
           description:
             "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
           skills: ["python", "reactJS"],
+          opening: 11,
         },
         {
           title: "project-6",
           description:
             "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
           skills: ["python", "reactJS"],
+          opening: 11,
         },
         {
           title: "project-7",
           description:
             "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
           skills: ["python", "reactJS"],
+          opening: 11,
         },
         {
           title: "project-8",
           description:
             "This is a small description of this project-1. BEtter fit in size to avoid overflow and make CSS ugly.",
           skills: ["python", "reactJS"],
+          opening: 11,
         },
       ],
     };
@@ -246,10 +254,19 @@ class UserProject extends React.Component {
                   </div>
                   <div className="opening-input">
                   <FormInput
-                    placeholder="Enter Project URL"
-                    value={this.state.newProjectURL}
+                    placeholder="Enter Project Opening"
+                    value={this.state.projects[id].opening}
                     onChange={(e) => {
-                      this.setState({ newProjectURL: e.target.value });
+                      this.setState(({ projects }) => ({
+                        projects: [
+                          ...projects.slice(0, id),
+                          {
+                            ...projects[id],
+                            opening: e.target.value,
+                          },
+                          ...projects.slice(id + 1),
+                        ],
+                      }));
                     }}
                   />
                   </div>
@@ -479,6 +496,7 @@ class UserProject extends React.Component {
                   projectTitle={project.title}
                   projectDescription={project.description}
                   projectSkill={project.skills}
+                  projectOpening={project.opening}
                 >
                   <CardGrid gridColumn="1fr 1fr">
                     <CustomButton

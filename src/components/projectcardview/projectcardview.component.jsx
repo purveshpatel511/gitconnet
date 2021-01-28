@@ -36,6 +36,11 @@ const ProjectCardView = (props) => {
                         : null
                 }
             </div>
+            <div className="opening-block">
+                <Card>
+                    <span className="opening-number">Openings Available: {props.projectOpening}</span>
+                </Card>
+            </div>
             <br/><br />
             {props.children}
         </div>        
