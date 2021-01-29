@@ -1,11 +1,11 @@
 import React from 'react';
 import './custom-button-card.style.scss';
 
-const CustomButtonCard = ({classname, imageURL, imageText}) => {
+const CustomButtonCard = ({classname, imageURL, imageText, url}) => {
     return(
-        <div className="custom-button-card">
-            <img className={classname} src={imageURL} alt={imageText} />
-        </div>
+        <a className="custom-button-card" href={url} target="_blank">
+                <img className={classname} src={imageURL} alt={imageText} />
+        </a>
     );
 }
 

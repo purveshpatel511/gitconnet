@@ -63,9 +63,9 @@ class UserProfile extends React.Component {
             isEdit: false,
             name: "Purvesh Patel",
             userid: "purveshpatel511",
-            github: "",
-            linkedin: "",
-            stackoverflow: "",
+            github: "https://github.com",
+            linkedin: "https://linkedin.com",
+            stackoverflow: "https://stackoverflow.com",
             tempSkill:"",
             skillCount: 20,
             skills: [
@@ -287,6 +287,10 @@ class UserProfile extends React.Component {
         }
     }
 
+    socials(url) {
+        console.log(url);
+    }
+
     renderGeneralProfile() {
         if(this.state.isEdit){
             return(
@@ -303,28 +307,28 @@ class UserProfile extends React.Component {
                         <div className="title-card">
                             <Card><h3>Userid</h3></Card>
                         </div>
-                        <FormInput placeholder="Enter Username" value={this.state.userid} onChange={(e) => {this.setState({name: e.target.value})}} />
+                        <FormInput placeholder="Enter Username" value={this.state.userid} onChange={(e) => {this.setState({userid: e.target.value})}} />
                     </div>
                     <br /><br />
                     <div className="github-section">
                         <div className="title-card">
                             <Card><h3>Github ID</h3></Card>
                         </div>
-                        <FormInput placeholder="Github User ID" value={this.state.github} onChange={(e) => {this.setState({name: e.target.value})}} />
+                        <FormInput placeholder="Github User ID" value={this.state.github} onChange={(e) => {this.setState({github: e.target.value})}} />
                     </div>
                     <br /><br />
                     <div className="linkedin-section">
                         <div className="title-card">
                             <Card><h3>LinkedIN</h3></Card>
                         </div>
-                        <FormInput placeholder="LinkedIN ID" value={this.state.linkedin} onChange={(e) => {this.setState({name: e.target.value})}} />
+                        <FormInput placeholder="LinkedIN ID" value={this.state.linkedin} onChange={(e) => {this.setState({linkedin: e.target.value})}} />
                     </div>
                     <br /><br />
                     <div className="stackoverflow-section">
                         <div className="title-card">
                             <Card><h3>Stackoverflow</h3></Card>
                         </div>
-                        <FormInput placeholder="StackOverflow ID" value={this.state.stackoverflow} onChange={(e) => {this.setState({name: e.target.value})}} />
+                        <FormInput placeholder="StackOverflow ID" value={this.state.stackoverflow} onChange={(e) => {this.setState({stackoverflow: e.target.value})}} />
                     </div>
                     </VerticalScroll>
                 </div>
@@ -384,9 +388,9 @@ class UserProfile extends React.Component {
                     <br />
                     <div className="modify-grid">
                         <CardGrid gridColumn="1fr 1fr 1fr">
-                            <CustomButtonCard classname="github-social" imageURL={GithubSVG} imageText="github" />
-                            <CustomButtonCard classname="linkedin-social" imageURL={LinkedinSVG} imageText="linkedin" />
-                            <CustomButtonCard classname="stackoverflow-social" imageURL={StackoverflowSVG} imageText="stackoverflow" />
+                            <CustomButtonCard classname="github-social" imageURL={GithubSVG} imageText="github" url={this.state.github} />
+                            <CustomButtonCard classname="linkedin-social" imageURL={LinkedinSVG} imageText="linkedin" url={this.state.linkedin} />
+                            <CustomButtonCard classname="stackoverflow-social" imageURL={StackoverflowSVG} imageText="stackoverflow" url={this.state.stackoverflow} />
                         </CardGrid>
                     </div>
                 </div>
