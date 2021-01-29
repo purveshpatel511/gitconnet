@@ -9,6 +9,9 @@ import ProjectCardView from '../../components/projectcardview/projectcardview.co
 import CustomButton from '../../components/custom-button/custom-button.component';
 import CardGrid from '../../components/cardgrid/cardgrid.component';
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 class SearchPage extends React.Component {
     constructor() {
         super();
@@ -87,7 +90,7 @@ class SearchPage extends React.Component {
         if(isBookmark) {
             console.log("Key: ",id);
             return(
-                <CustomButton title="BookMarked" onClick={() => {
+                <CustomButton title="BookMarked" onClick={() => (
                     this.setState(({allProjects}) => ({
                         allProjects: [
                             ...allProjects.slice(0,id),
@@ -97,14 +100,15 @@ class SearchPage extends React.Component {
                             },
                             ...allProjects.slice(id + 1),
                         ]
-                    }))
-                }} />
+                    })),
+                    this.falseBookmarkNotification()
+                )} />
             )
         }
         else {
             console.log("Key: ",id);
             return(
-                <CustomButton title="BookMark" onClick={() => {
+                <CustomButton title="BookMark" onClick={() => (
                     this.setState(({allProjects}) => ({
                         allProjects: [
                             ...allProjects.slice(0,id),
@@ -114,8 +118,9 @@ class SearchPage extends React.Component {
                             },
                             ...allProjects.slice(id + 1),
                         ]
-                    }))
-                }} />
+                    })),
+                    this.trueBookmarkNotification()
+                )} />
             )
         }
     }
@@ -124,7 +129,7 @@ class SearchPage extends React.Component {
         var id = projectID - 1;
         if(isRequested){
             return(
-                <CustomButton title="Requested" onClick={() => {
+                <CustomButton title="Requested" onClick={() => (
                     this.setState(({allProjects}) => ({
                         allProjects: [
                             ...allProjects.slice(0,id),
@@ -134,13 +139,14 @@ class SearchPage extends React.Component {
                             },
                             ...allProjects.slice(id + 1),
                         ]
-                    }))
-                }} />
+                    })),
+                    this.falseRequestedNotification()
+                )} />
             )
         }
         else {
             return(
-                <CustomButton title="Do Contribution" onClick={() => {
+                <CustomButton title="Do Contribution" onClick={() => (
                     this.setState(({allProjects}) => ({
                         allProjects: [
                             ...allProjects.slice(0,id),
@@ -150,14 +156,31 @@ class SearchPage extends React.Component {
                             },
                             ...allProjects.slice(id + 1),
                         ]
-                    }))
-                }} />
+                    })),
+                    this.trueRequestedNotification()
+                )} />
             )
         }
     }
 
-    render() {
+    trueBookmarkNotification() {
+        toast.success("BookMark Successfully.");
+    }
 
+    trueRequestedNotification() {
+        toast.success("Requested for Contribution.");
+    }
+
+    falseBookmarkNotification() {
+        toast.error("BookMark Removed.");
+    }
+
+    falseRequestedNotification() {
+        toast.error("Request Removed.");
+    }
+
+    render() {
+        toast.configure();
         const { allProjects, searchQuery } = this.state;
 
         // filter projects that contains searchQuery string and put search skill to 
