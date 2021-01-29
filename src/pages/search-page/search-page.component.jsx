@@ -20,45 +20,139 @@ class SearchPage extends React.Component {
                     user: "purvesh",
                     projectTitle: "gitConnect-1",
                     projectDescription: "This is small project for testing.",
-                    projectSkill: ["python","aws","babel","aws","babel"]
+                    projectSkill: ["python","aws","babel","aws","babel"],
+                    bookmark: false,
+                    requested: false,
                 },
                 {
                     user: "purvesh",
                     projectTitle: "gitConnect-2",
                     projectDescription: "This is small project for testing.",
-                    projectSkill: ["reactjs","aws","babel"]
+                    projectSkill: ["reactjs","aws","babel"],
+                    bookmark: true,
+                    requested: false,
                 },
                 {
                     user: "purvesh",
                     projectTitle: "gitConnect-3",
                     projectDescription: "This is small project for testing.",
-                    projectSkill: ["aws","babel"]
+                    projectSkill: ["aws","babel"],
+                    bookmark: false,
+                    requested: false,
                 },
                 {
                     user: "purvesh",
                     projectTitle: "gitConnect-4",
                     projectDescription: "This is small project for testing.",
-                    projectSkill: ["reactjs","aws"]
+                    projectSkill: ["reactjs","aws"],
+                    bookmark: false,
+                    requested: false,
                 },
                 {
                     user: "purvesh",
                     projectTitle: "gitConnect-5",
                     projectDescription: "This is small project for testing.",
-                    projectSkill: ["python","babel"]
+                    projectSkill: ["python","babel"],
+                    bookmark: false,
+                    requested: false,
                 },
                 {
                     user: "purvesh",
                     projectTitle: "gitConnect-6",
                     projectDescription: "This is small project for testing.",
-                    projectSkill: ["reactjs","aws","babel"]
+                    projectSkill: ["reactjs","aws","babel"],
+                    bookmark: false,
+                    requested: false,
                 },
                 {
                     user: "purvesh",
                     projectTitle: "gitConnect-7",
                     projectDescription: "This is small project for testing.",
-                    projectSkill: ["python","reactjs","aws","babel"]
+                    projectSkill: ["python","reactjs","aws","babel"],
+                    bookmark: false,
+                    requested: false,
                 }
             ]
+        }
+    }
+
+    resetKey() {
+        this.state.allProjects.forEach((project, i) => {
+            project.key = i+1;
+        })
+    }
+
+    renderBookmark = (isBookmark, projectID) => {
+        var id = projectID -1;
+        if(isBookmark) {
+            console.log("Key: ",id);
+            return(
+                <CustomButton title="BookMarked" onClick={() => {
+                    this.setState(({allProjects}) => ({
+                        allProjects: [
+                            ...allProjects.slice(0,id),
+                            {
+                                ...allProjects[id],
+                                bookmark: !(this.state.allProjects[id].bookmark),
+                            },
+                            ...allProjects.slice(id + 1),
+                        ]
+                    }))
+                }} />
+            )
+        }
+        else {
+            console.log("Key: ",id);
+            return(
+                <CustomButton title="BookMark" onClick={() => {
+                    this.setState(({allProjects}) => ({
+                        allProjects: [
+                            ...allProjects.slice(0,id),
+                            {
+                                ...allProjects[id],
+                                bookmark: !(this.state.allProjects[id].bookmark),
+                            },
+                            ...allProjects.slice(id + 1),
+                        ]
+                    }))
+                }} />
+            )
+        }
+    }
+
+    renderRequested = (isRequested, projectID) => {
+        var id = projectID - 1;
+        if(isRequested){
+            return(
+                <CustomButton title="Requested" onClick={() => {
+                    this.setState(({allProjects}) => ({
+                        allProjects: [
+                            ...allProjects.slice(0,id),
+                            {
+                                ...allProjects[id],
+                                requested: !(this.state.allProjects[id].requested),
+                            },
+                            ...allProjects.slice(id + 1),
+                        ]
+                    }))
+                }} />
+            )
+        }
+        else {
+            return(
+                <CustomButton title="Do Contribution" onClick={() => {
+                    this.setState(({allProjects}) => ({
+                        allProjects: [
+                            ...allProjects.slice(0,id),
+                            {
+                                ...allProjects[id],
+                                requested: !(this.state.allProjects[id].requested),
+                            },
+                            ...allProjects.slice(id + 1),
+                        ]
+                    }))
+                }} />
+            )
         }
     }
 
@@ -93,12 +187,13 @@ class SearchPage extends React.Component {
                                 <CardList>
                                     {
                                         filteredProjects.map(project => {
+                                            this.resetKey();
                                             return(
                                                 <ProjectCardView projectTitle={project.projectTitle} projectDescription={project.projectDescription} projectSkill={project.projectSkill} >
                                                     <CardGrid gridColumn="1fr 1fr 1fr">
-                                                        <CustomButton title="BookMark" />
-                                                        <CustomButton title="Github" />
-                                                        <CustomButton title="Do Contribution" />
+                                                        {this.renderBookmark(project.bookmark, project.key)}
+                                                        <CustomButton title="Github" onClick={() => window.open("https://github.com","_blank")} />
+                                                        {this.renderRequested(project.requested, project.key)}
                                                     </CardGrid>
                                                 </ProjectCardView>
                                             )
