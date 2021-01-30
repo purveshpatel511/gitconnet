@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './header.style.scss';
 
 import CustomButton from '../custom-button/custom-button.component';
 
-const Header = () => {
+const Header = (props) => {
     return(
         <nav className="header">
             <div className="logo">
                 <CustomButton title="GitConnect" />
             </div>
             <div className="options">
-                <Link to="/">
+                <Link to="/search">
                     <CustomButton title="Search" />
                 </Link>
                 <Link to="/profile">
@@ -23,8 +23,8 @@ const Header = () => {
                 <Link to="/notifications">
                     <CustomButton title="Notification" />
                 </Link>
-                <Link to="/signout">
-                    <CustomButton title="Sign out" />
+                <Link to="/">
+                    <CustomButton title="Sign out" onClick={() => (props.handleLogin())} />
                 </Link>
             </div>
         </nav>
