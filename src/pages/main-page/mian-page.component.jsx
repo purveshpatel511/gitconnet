@@ -13,13 +13,12 @@ class MainPage extends React.Component {
     render() {
         return (
             <div className="main-page">
-                <h1>Main Page</h1>
-                <br />
-                <br />
-                <br />
-                <Link to="/search">
-                    <CustomButton title="LogIn" onClick={() => (this.props.data.handleLogin())} />
-                </Link>
+                <h1>Welcome to gitConnect</h1>
+                <div className="login-button">
+                    <Link to="/search">
+                        <CustomButton title="LogIn" onClick={() => (this.props.data.handleLogin())} />
+                    </Link>
+                </div>
             </div>
         )
     }
