@@ -20,27 +20,26 @@ import CancelButton from "../../components/cancel-button/cancel-button.component
 import FormTextbox from "../../components/form-textbox/form-textbox.component";
 import FormTextArea from "../../components/form-textarea/form-textarea.component";
 
-
 const customStyles = {
   menu: (provided, state) => ({
     ...provided,
     width: state.selectProps.width,
-    borderBottom: '1px dotted pink',
+    borderBottom: "1px dotted pink",
     color: state.selectProps.menuColor,
     padding: 20,
   }),
 
-  control: (_, { selectProps: { width }}) => ({
-    width: width
+  control: (_, { selectProps: { width } }) => ({
+    width: width,
   }),
 
   singleValue: (provided, state) => {
     const opacity = state.isDisabled ? 0.5 : 1;
-    const transition = 'opacity 300ms';
+    const transition = "opacity 300ms";
 
     return { ...provided, opacity, transition };
-  }
-}
+  },
+};
 
 class UserProject extends React.Component {
   constructor(props) {
@@ -244,15 +243,15 @@ class UserProject extends React.Component {
                   />
                 </div>
               </div>
-                <br />
-                <br />
-                <div className="opening-section">
-                  <div className="opening-card">
-                    <Card>
-                      <h3>Openings</h3>
-                    </Card>
-                  </div>
-                  <div className="opening-input">
+              <br />
+              <br />
+              <div className="opening-section">
+                <div className="opening-card">
+                  <Card>
+                    <h3>Openings</h3>
+                  </Card>
+                </div>
+                <div className="opening-input">
                   <FormInput
                     placeholder="Enter Project Opening"
                     value={this.state.projects[id].opening}
@@ -269,7 +268,7 @@ class UserProject extends React.Component {
                       }));
                     }}
                   />
-                  </div>
+                </div>
               </div>
             </VerticalScroll>
           </Card>
@@ -277,13 +276,13 @@ class UserProject extends React.Component {
             <h2 className="inner-header">Required Skill</h2>
             <div className="add-new-skill">
               <div className="add-new-skill-input">
-              <FormInput
-                placeholder="Skill"
-                value={this.state.tempSkill}
-                onChange={(e) => {
-                  this.setState({ tempSkill: e.target.value });
-                }}
-              />
+                <FormInput
+                  placeholder="Skill"
+                  value={this.state.tempSkill}
+                  onChange={(e) => {
+                    this.setState({ tempSkill: e.target.value });
+                  }}
+                />
               </div>
               <CustomButton
                 title="Add Skill"
@@ -346,7 +345,7 @@ class UserProject extends React.Component {
                   options={this.state.github_projects}
                   onChange={this.selectProject}
                   placeholder="Select Project"
-                  styles = {customStyles}
+                  styles={customStyles}
                 />
               </div>
               <br />
@@ -358,13 +357,13 @@ class UserProject extends React.Component {
                   </Card>
                 </div>
                 <div className="discription-input">
-                <FormTextArea
-                  placeholder="Enter Discription"
-                  value={this.state.newProjectDescription}
-                  onChange={(e) => {
-                    this.setState({ newProjectDescription: e.target.value });
-                  }}
-                />
+                  <FormTextArea
+                    placeholder="Enter Discription"
+                    value={this.state.newProjectDescription}
+                    onChange={(e) => {
+                      this.setState({ newProjectDescription: e.target.value });
+                    }}
+                  />
                 </div>
               </div>
               <br />
@@ -376,13 +375,13 @@ class UserProject extends React.Component {
                   </Card>
                 </div>
                 <div className="opening-input">
-                <FormInput
-                  placeholder="Enter Project URL"
-                  value={this.state.newProjectURL}
-                  onChange={(e) => {
-                    this.setState({ newProjectURL: e.target.value });
-                  }}
-                />
+                  <FormInput
+                    placeholder="Enter Project URL"
+                    value={this.state.newProjectURL}
+                    onChange={(e) => {
+                      this.setState({ newProjectURL: e.target.value });
+                    }}
+                  />
                 </div>
               </div>
             </VerticalScroll>
@@ -391,13 +390,13 @@ class UserProject extends React.Component {
             <h2 className="inner-header">Required Skill</h2>
             <div className="add-new-skill">
               <div className="add-new-skill-input">
-              <FormInput
-                placeholder="Skill"
-                value={this.state.tempSkill}
-                onChange={(e) => {
-                  this.setState({ tempSkill: e.target.value });
-                }}
-              />
+                <FormInput
+                  placeholder="Skill"
+                  value={this.state.tempSkill}
+                  onChange={(e) => {
+                    this.setState({ tempSkill: e.target.value });
+                  }}
+                />
               </div>
               <CustomButton
                 title="Add Skill"

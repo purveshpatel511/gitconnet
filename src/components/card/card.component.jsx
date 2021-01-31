@@ -1,12 +1,8 @@
-import React from 'react';
-import './card.style.scss';
+import React from "react";
+import "./card.style.scss";
 
 const Card = (props) => {
-    return (
-        <div className="card">
-            {props.children}
-        </div>
-    );
-}
+  return <div className="card">{props.children}</div>;
+};
 
 export default Card;
