@@ -5,7 +5,7 @@ import UserProfile from './pages/user-profile/user-profile.component';
 import UserProject from './pages/user-project/user-project.component';
 import Notification from './pages/notification/notification.component';
 import SearchPage from './pages/search-page/search-page.component';
-import MainPage from './pages/main-page/mian-page.component';
+import MainPage from './pages/main-page/main-page.component';
 import React, { useState } from 'react';
 
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
