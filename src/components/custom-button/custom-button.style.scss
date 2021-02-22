@@ -22,7 +22,7 @@
 //   }
 
 .custom-button {
-  background-color: #e0e5ec;
+  background-color: #DEC0F1;
   // background:  linear-gradient(145deg, #16a5ab, #1ac4cb);
   position: relative;
   border: none;
@@ -30,8 +30,8 @@
   width: 180px;
   overflow: hidden;
   outline: none;
-  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
-    -9px -9px 16px rgba(255, 255, 255, 0.5);
+  box-shadow: 9px 9px 27px #bda3cd,
+              -9px -9px 27px #ffddff;
   // box-shadow:  20px 20px 60px #149ca2,
   //            -20px -20px 60px #1cd2db;
   // border-radius: 25%;
