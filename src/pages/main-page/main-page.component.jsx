@@ -12,11 +12,13 @@ class MainPage extends React.Component {
   render() {
     return (
       <div className="main-page">
-        <h1>Welcome to gitConnect</h1>
+        <div className="main-background">
+          <h1>gitConnect</h1>
+        </div>
         <div className="login-button">
           <Link to="/search">
             <CustomButton
-              title="LogIn"
+              title="Login"
               onClick={() => this.props.data.handleLogin()}
             />
           </Link>

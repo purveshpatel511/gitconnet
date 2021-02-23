@@ -11,3 +11,12 @@ h2 {
 span {
   color: black;
 }
+
+@font-face {
+  font-family: 'shinsenbold';
+  src: url('./media/fonts/shinsen-bold-webfont.woff2') format('woff2'),
+       url('./media/fonts/shinsen-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
