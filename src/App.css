@@ -1,6 +1,13 @@
 body {
-  background-color: #dec0f1;
-  /* background-color: #9db4c0; */
+  background-color: #e0e5ec;
   padding: 0px 40px;
   margin: 0;
+}
+
+h2 {
+  color: black;
+}
+
+span {
+  color: black;
 }

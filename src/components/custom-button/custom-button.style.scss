@@ -1,51 +1,15 @@
-// .custom-button {
-//     min-width: 165px;
-//     width: auto;
-//     height: 50px;
-//     letter-spacing: 0.5px;
-//     line-height: 50px;
-//     padding: 0 35px 0 35px;
-//     font-size: 15px;
-//     background-color: black;
-//     color: white;
-//     text-transform: uppercase;
-//     font-family: 'Open Sans Condensed';
-//     font-weight: bolder;
-//     border: none;
-//     cursor: pointer;
-
-//     &:hover {
-//       background-color: white;
-//       color: black;
-//       border: 1px solid black;
-//     }
-//   }
-
 .custom-button {
-  background-color: #DEC0F1;
-  // background:  linear-gradient(145deg, #16a5ab, #1ac4cb);
+  background-color: #e0e5ec;
   position: relative;
   border: none;
   height: 60px;
   width: 180px;
   overflow: hidden;
   outline: none;
-  box-shadow: 9px 9px 27px #bda3cd,
-              -9px -9px 27px #ffddff;
-  // box-shadow:  20px 20px 60px #149ca2,
-  //            -20px -20px 60px #1cd2db;
-  // border-radius: 25%;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
   font-size: 20px;
-
-  //   border-radius: 18px;
-  // background: #178ca4;
-  // box-shadow:  5px 5px 36px #093842,
-  //              -5px -5px 36px #25e0ff;
-
   border-radius: 18px;
-  // background: #7b2cbf;
-  // box-shadow:  7px 7px 14px #798b94,
-  //              -7px -7px 14px #c1ddec;
 
   &::after {
     content: "";

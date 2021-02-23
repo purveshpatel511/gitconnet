@@ -1,29 +1,11 @@
-// .card-view{
-//     display: flex;
-//     flex-direction: column;
-//     background-color: aqua;
-//     border: 1px solid black;
-//     border-radius: 5px;
-//     padding: 25px;
-//     cursor: pointer;
-//     -moz-osx-font-smoothing: grayscale;
-//     backface-visibility: hidden;
-//     transform: translateZ(0);
-//     transition: trasform 0.25s ease-out;
-// }
-
-// .card-view:hover {
-//     transform: scale(1.00);
-// }
-
 .project-card-view {
-  background-color: #DEC0F1;
+  background-color: #e0e5ec;
   position: relative;
   padding: 25px;
   overflow: hidden;
   outline: none;
-  box-shadow: 9px 9px 27px #bda3cd,
-              -9px -9px 27px #ffddff;
+  box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+    -9px -9px 16px rgba(255, 255, 255, 0.5);
   border-radius: 2%;
   font-size: 20px;
   transition: trasform 0.25s ease-out;
@@ -54,9 +36,3 @@
     }
   }
 }
-
-// .project-card-view {
-//     .card-grid {
-//         width: auto;
-//     }
-// }
